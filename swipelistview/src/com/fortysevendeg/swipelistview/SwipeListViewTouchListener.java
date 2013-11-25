@@ -27,6 +27,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.*;
 import android.widget.AbsListView;
+import android.widget.AbsListView.LayoutParams;
 import android.widget.ListView;
 
 import com.nineoldandroids.animation.Animator;
@@ -1026,8 +1027,9 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             if (pendingDismiss.view != null) {
                 setAlpha(pendingDismiss.view, 1f);
                 setTranslationX(pendingDismiss.view, 0);
-                lp = pendingDismiss.view.getLayoutParams();
-                lp.height = originalHeight;
+                // lp = pendingDismiss.view.getLayoutParams();
+                // lp.height = originalHeight;
+                lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 pendingDismiss.view.setLayoutParams(lp);
             }
         }
